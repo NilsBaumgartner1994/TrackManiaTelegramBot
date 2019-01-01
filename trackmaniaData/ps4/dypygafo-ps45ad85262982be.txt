@@ -1,0 +1,2 @@
+{"landRankDiff": 0, "land": "Germany", "zip": "Niedersachsen", "zipRank": "160nd", "worldDiff": 0, "player": "Sicarius5496", "landRank": "1,600th", "time": "Last update: January 1, 2018 at 6:20:02 AM GMT", "world": "10.000st", "zipRankDiff": 0}
+{"landRankDiff": 30, "land": "Germany", "zip": "Niedersachsen", "zipRank": "142nd", "worldDiff": 2259, "player": "Sicarius5496", "landRank": "1,570th", "time": "Last update: January 1, 2019 at 6:20:02 AM GMT", "world": "7,741st", "zipRankDiff": 18}
