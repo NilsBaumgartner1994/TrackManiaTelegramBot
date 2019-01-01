@@ -7,7 +7,7 @@ import emoji
 import json
 import os
 
-token = "608105554:AAFeglfX6Ac-T8Ry4-mWENsBvaxVbjhOokI"
+token = ""
 bot = TelegramBot.TelegramBot(token)
 
 telegramDataPath = "./chatIDToURL.txt"
