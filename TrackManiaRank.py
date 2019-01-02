@@ -8,6 +8,21 @@ class TrackManiaRank:
     dataPath = "./trackmaniaData/"
     defaultUrl = "https://players.turbo.trackmania.com/"
 
+    def isValidURL(self,url):
+        return self.getURLState(url) == "valid"
+
+    def getURLState(self,url):
+        try:
+            informations = self.getPlayerInformationFromWebsite(url)
+            return "valid"
+        except ValueError:
+            return "wrong"
+        except IndexError:
+            return "privat"
+        except:
+            return "wrong"
+
+
     def getPathToPlayerInformation(self,url):
         url = url[len(self.defaultUrl):]
         splits = url.split("/")
@@ -20,6 +35,7 @@ class TrackManiaRank:
 
         with open(path,"a") as f:
             json.dump(recentInformations,f)
+            f.write("\n")
 
     def loadLastPlayerInformationFromFileByPath(self,path):
         with open(path,"r") as f:
@@ -44,8 +60,8 @@ class TrackManiaRank:
 
     def newUpdateOnline(self):
         updateTimeOnHTML = self.getLastUpdate()
-        if lastUpdate != updateTimeOnHTML:
-            lastUpdate = updateTimeOnHTML
+        if self.lastUpdate != updateTimeOnHTML:
+            self.lastUpdate = updateTimeOnHTML
             return True
         return False
 
@@ -58,6 +74,7 @@ class TrackManiaRank:
         return smallTag[0].getText()
 
     def __init__(self):
+        self.newUpdateOnline() #Set first Update on startup
         pass
 
     def helperTextToDigit(self,text):
@@ -116,6 +133,8 @@ class TrackManiaRank:
 
     def getPlayerInformations(self,url):
         if(url==None):
+            return None
+        if not self.isValidURL(url):
             return None
 
         lastWebPageUpdate = self.getLastUpdate()
