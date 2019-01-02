@@ -23,7 +23,7 @@ def loadToken():
         return False
     with open(tokenPath,"r") as f:
             for line in f:
-                    bot = TelegramBot.TelegramBot(str(line))   
+                    bot = TelegramBot.TelegramBot(line.strip())   
                     return True
 
 
