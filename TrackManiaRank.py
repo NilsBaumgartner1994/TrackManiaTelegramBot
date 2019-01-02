@@ -30,8 +30,11 @@ class TrackManiaRank:
 
     def savePlayerInformationToFile(self,url,recentInformations):
         path = self.getPathToPlayerInformation(url)
-        if not os.path.exists(path):
+        if not os.path.exists(os.path.dirname(path)):
             os.makedirs(os.path.dirname(path))
+        if not os.path.isfile(path):
+            with open(path,"w+") as f:
+                pass
 
         with open(path,"a") as f:
             json.dump(recentInformations,f)
